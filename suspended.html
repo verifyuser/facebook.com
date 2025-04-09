@@ -1,27 +1,88 @@
 <!-- suspended.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Account Suspended</title>
+  <meta charset="UTF-8">
+  <title>Account Suspended | Facebook</title>
+  <link rel="icon" href="https://www.facebook.com/favicon.ico">
   <style>
-    body { font-family: Arial; background-color: #fff3f3; padding: 40px; text-align: center; margin: 0; }
-    .suspend-box { background: white; padding: 30px; margin: auto; max-width: 500px; border: 2px solid #ff4d4f; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h2 { color: #d32f2f; }
-    p, ul { margin: 15px 0; text-align: left; }
+    body {
+      margin: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #f0f2f5;
+    }
+
+    .navbar {
+      background-color: #1877f2;
+      color: white;
+      padding: 12px 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #d93025;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .info strong {
+      color: #000;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: #555;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <div class="suspend-box">
-    <h2>Account Suspended</h2>
-    <p>Your Facebook account has been temporarily suspended.</p>
-    <p><strong>Reason:</strong> Violation of Facebook Community Guidelines.</p>
-    <p>This may include:</p>
-    <ul>
-      <li>Sharing harmful or prohibited content</li>
-      <li>Suspicious or spam-like behavior</li>
-      <li>Automated tools or bots</li>
-    </ul>
-    <p>If you believe this was a mistake, please contact Facebook support.</p>
+
+  <div class="navbar">
+    Facebook
   </div>
+
+  <div class="container">
+    <h2>Your Account Has Been Suspended</h2>
+    <div class="info">
+      <p>We’ve temporarily suspended your Facebook account because it violated our <strong>Community Standards</strong>.</p>
+
+      <p><strong>Reason:</strong> Your activity triggered one or more of the following policy violations:</p>
+      <ul>
+        <li>Posting or sharing harmful or restricted content</li>
+        <li>Repeated violations of Facebook rules</li>
+        <li>Suspicious or spam-like activity</li>
+      </ul>
+
+      <p>If you believe this was a mistake, you can submit an appeal by going to the <strong>Help Center</strong>.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 Meta Platforms, Inc.
+  </div>
+
 </body>
 </html>
