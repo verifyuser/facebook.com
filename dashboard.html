@@ -1,0 +1,25 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #e9f0ff; padding: 40px; text-align: center; }
+    .box { background: white; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { color: #1877f2; }
+    p { font-size: 16px; color: #333; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Welcome to Dashboard</h2>
+    <p><strong>Username:</strong> <span id="user"></span></p>
+    <p><strong>Password:</strong> <span id="pass"></span></p>
+  </div>
+
+  <script>
+    document.getElementById("user").innerText = localStorage.getItem("storedUsername") || 'N/A';
+    document.getElementById("pass").innerText = localStorage.getItem("storedPassword") || 'N/A';
+  </script>
+</body>
+</html>
