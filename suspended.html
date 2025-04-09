@@ -1,16 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Account Suspended | Facebook</title>
   <link rel="icon" href="https://www.facebook.com/favicon.ico">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background-color: #f0f2f5; }
-    .navbar { background-color: #1877f2; color: white; padding: 12px 20px; font-size: 20px; font-weight: bold; }
-    .container { max-width: 600px; margin: 60px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    h2 { color: #d93025; }
-    p, ul { font-size: 15px; color: #333; line-height: 1.6; }
-    ul { padding-left: 20px; }
-    .footer { text-align: center; font-size: 12px; margin-top: 40px; color: #888; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f2f5;
+    }
+
+    .navbar {
+      background-color: #1877f2;
+      color: white;
+      padding: 12px 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #d93025;
+      margin-bottom: 10px;
+    }
+
+    p, ul {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .username-box {
+      background-color: #fff0f0;
+      border-left: 4px solid #d93025;
+      padding: 10px 15px;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .review-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .review-button:hover {
+      background-color: #145dbf;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 40px;
+      color: #888;
+    }
   </style>
 </head>
 <body>
@@ -19,17 +82,32 @@
 
   <div class="container">
     <h2>Your Account Has Been Suspended</h2>
-    <p>We've detected activity that violates our <strong>Community Guidelines</strong>.</p>
-    <p><strong>Reason:</strong> Suspicious login behavior or policy violation.</p>
+
+    <div class="username-box">
+      Username attempted: <span id="suspendedUser">Unknown</span>
+    </div>
+
+    <p>Your account has been temporarily suspended due to activity that goes against our <strong>Community Standards</strong>.</p>
+
+    <p><strong>Why this happened:</strong></p>
     <ul>
-      <li>Unusual or automated access attempts</li>
-      <li>Repeated violation of community rules</li>
-      <li>Suspicious third-party tools</li>
+      <li>Suspicious or automated login behavior</li>
+      <li>Possible use of untrusted browser extensions</li>
+      <li>Repeated policy violations</li>
     </ul>
-    <p>If you believe this is a mistake, you may contact support through our Help Center.</p>
+
+    <p>If you believe this was a mistake, you can request a review. We'll take a closer look at your activity and get back to you.</p>
+
+    <a href="#" class="review-button">Request Review</a>
   </div>
 
   <div class="footer">© 2025 Meta Platforms, Inc.</div>
+
+  <script>
+    // Get username from localStorage and show
+    const user = localStorage.getItem("storedUsername") || "Unknown";
+    document.getElementById("suspendedUser").innerText = user;
+  </script>
 
 </body>
 </html>
