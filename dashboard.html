@@ -1,25 +1,47 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html>
 <head>
   <title>Dashboard</title>
   <style>
-    body { font-family: Arial, sans-serif; background-color: #e9f0ff; padding: 40px; text-align: center; }
-    .box { background: white; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h2 { color: #1877f2; }
-    p { font-size: 16px; color: #333; }
+    body { font-family: Arial, sans-serif; background-color: #eef3fc; padding: 40px; }
+    .box { background: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { color: #1877f2; text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border-bottom: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f0f0f0; }
   </style>
 </head>
 <body>
   <div class="box">
-    <h2>Welcome to Dashboard</h2>
-    <p><strong>Username:</strong> <span id="user"></span></p>
-    <p><strong>Password:</strong> <span id="pass"></span></p>
+    <h2>Welcome, Jin</h2>
+    <h3>Last 10 Login Attempts</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="loginTable"></tbody>
+    </table>
   </div>
 
   <script>
-    document.getElementById("user").innerText = localStorage.getItem("storedUsername") || 'N/A';
-    document.getElementById("pass").innerText = localStorage.getItem("storedPassword") || 'N/A';
+    const data = JSON.parse(localStorage.getItem("loginHistory")) || [];
+    const table = document.getElementById("loginTable");
+
+    data.forEach((entry, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${entry.username}</td>
+        <td>${entry.password}</td>
+        <td>${entry.time}</td>
+      `;
+      table.appendChild(row);
+    });
   </script>
 </body>
 </html>
