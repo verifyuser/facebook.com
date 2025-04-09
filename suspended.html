@@ -153,37 +153,4 @@
     </ul>
 
     <div class="notice">
-      Suspended accounts are reviewed carefully. If this was a mistake, you can request a review. Some reviews may be restricted based on the severity of the violation.
-    </div>
-
-    <button class="review-button" onclick="openModal()">Request Review</button>
-  </div>
-
-  <div class="footer">© 2025 Meta Platforms, Inc.</div>
-
-  <!-- Access Denied Modal -->
-  <div id="accessModal">
-    <div class="modal-box">
-      <h3>Access Denied</h3>
-      <p>This account is not eligible for review due to severe policy violations. Please contact support for more information.</p>
-      <button class="modal-close" onclick="closeModal()">Close</button>
-    </div>
-  </div>
-
-  <script>
-    // Show attempted username
-    const user = localStorage.getItem("storedUsername") || "Unknown";
-    document.getElementById("suspendedUser").innerText = user;
-
-    // Modal logic
-    function openModal() {
-      document.getElementById("accessModal").style.display = "flex";
-    }
-
-    function closeModal() {
-      document.getElementById("accessModal").style.display = "none";
-    }
-  </script>
-
-</body>
-</html>
+      Suspended accounts are reviewed carefully
